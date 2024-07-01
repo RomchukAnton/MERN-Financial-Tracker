@@ -1,6 +1,7 @@
 import express,{Express} from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import { FinancialRecordsRouter } from "./routes/financial-records";
 
 
 dotenv.config();
@@ -11,6 +12,7 @@ const mongoURI: any = process.env.MONGODB_CONNECT;
 app.use(express.json());
 
 
+app.use("/financial-records", FinancialRecordsRouter);
 
 
 mongoose.connect(mongoURI)
